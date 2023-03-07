@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./container/home/Home";
+import Orderlist from "./container/orderlist/Orderlist";
+import Notifications from "./container/notifications/Notifications";
+import Cart from "./container/cart/Cart";
+import More from "./container/more/More";
+import Navbar from "./container/navbar/Navbar";
+import Product from "./container/productpage/Product";
+import Final from "./container/final/Final";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/orderlist" element={<Orderlist />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/more" element={<More />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/final" element={<Final />} />
+          <Route path="*" element={<div>404 error</div>} />
+        </Routes>
+      </Router>
   );
 }
 
